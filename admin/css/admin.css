@@ -1,0 +1,254 @@
+body {
+  background-color: #f3f4f6;
+  font-family: 'Inter', sans-serif;
+  padding: 2rem;
+  color: #1f2937;
+}
+
+.form-wrapper {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.section-card h2,
+.section-card h3 {
+  border-left: 4px solid #3b82f6;
+  padding-left: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+.form-wrapper input[type="text"],
+.form-wrapper input[type="file"],
+.form-wrapper textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  font-size: 0.95rem;
+  transition: border 0.2s;
+}
+
+.form-wrapper input[type="text"]:focus,
+.form-wrapper textarea:focus {
+  border-color: #3b82f6;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  padding: 0.75rem 1rem;
+}
+
+label {
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #374151;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.form-wrapper button[type="submit"] {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.9rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-wrapper button[type="submit"]:hover {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.input-card {
+  /* background-color: #f9fafb; */
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.input-card label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #374151;
+  font-size: medium;
+}
+
+button, #add-img-btn, .remove-img-btn, #add-provide-btn, .remove-provide-btn, #add-subnav, .remove-subnav, #add-slide, .remove-slide, #add-vid-btn, .remove-vid-btn{
+    font-size: 13px;
+    padding: 2px 6px;
+}
+
+.image-preview {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  max-height: 120px;
+  max-width: 100%;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.image-preview:hover {
+  transform: scale(1.02);
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+/* 整体容器 */
+.lang-selector {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+/* 下拉框美化 */
+.lang-selector select {
+  appearance: none; /* 去掉浏览器默认样式 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  
+  background: #ffffff url("data:image/svg+xml,%3Csvg width='14' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3l6 6 6-6' stroke='%23666' stroke-width='2' fill='none' fill-rule='evenodd'/%3E%3C/svg%3E") no-repeat right 10px center;
+  background-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 32px 8px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+    
+/* 鼠标悬停效果 */
+.lang-selector select:hover {
+  border-color: #888;
+  box-shadow: 0 0 6px rgba(0,0,0,0.08);
+}
+
+/* 选中时的样式 */
+.lang-selector select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74,144,226,0.3);
+}
+
+.carousel-section .slide-card {
+  display: block;
+  position: relative;
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-section #slides-container {
+  display: flex;
+  flex-wrap:wrap;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  align-items: flex-start;
+}
+
+/* 移动端优化 */
+@media (max-width: 480px) {
+  .lang-selector select {
+    width: 100%;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  .form-wrapper {
+    padding: 0.5rem;
+  }
+
+  .section-card {
+    padding: 1rem;
+    margin-bottom: 1.25rem;
+    border-radius: 10px;
+  }
+
+  .section-card h2,
+  .section-card h3 {
+    font-size: 1.1rem;
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-size: 0.95rem;
+  }
+
+  .form-wrapper input[type="text"],
+  .form-wrapper input[type="file"],
+  .form-wrapper textarea {
+    font-size: 1rem;
+    padding: 0.65rem 0.9rem;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+
+  .form-wrapper button[type="submit"] {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .image-preview {
+    max-height: 80px;
+  }
+
+  .carousel-section #slides-container {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+  /* for loop 区域 - 保证单列全宽 */
+@media (max-width: 768px) {
+  .form-grid {
+    display: block !important;
+  }
+  .form-grid .input-card {
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+}

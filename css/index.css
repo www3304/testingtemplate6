@@ -1,0 +1,821 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+    scroll-padding-top: 130px;
+    scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f4f4;
+  color: #555;
+  line-height: 1.6;
+}
+
+.logo{
+  border-radius: 6px;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  height: 600px;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.banner-slider {
+  position: relative;
+  width: 100%;
+  height: 800px;
+  overflow: hidden;
+}
+
+.banner-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none; /* 防止不可见层被点到 */
+}
+
+.banner-slide.active {
+  opacity: 1;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.banner-slide img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  border-radius: 6px;
+  animation: zoomFade 5s ease-in-out infinite;
+}
+
+#banner-caption{
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+    max-width: 60%;
+}
+
+/* 淡入 + 缩放动画（可选） */
+@keyframes zoomFade {
+  0% {
+    transform: scale(1.05);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+.banner-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+  /* ✅ 确保始终在图片上方 */
+}
+
+.banner-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.banner-dots .dot.active {
+  background: white;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 768px) {
+  .banner-slider {
+    height: 300px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.about-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  text-align: justify;
+}
+
+.about-left {
+  flex: 1 1 50%;
+  align-self: flex-start;
+}
+
+.about-left h2 {
+  margin-bottom: 20px;
+  font-size: 18px !important;
+}
+
+.about-left div p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.about-right {
+  flex: 1 1 45%;
+}
+
+.about-right img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#features h2 {
+  font-size: 18px !important;
+  margin-bottom: 20px;
+}
+
+#features h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#features div p {
+  font-size: 14px;
+}
+
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.feature-box {
+  flex: 1 1 30%;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.provide-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  text-align: justify;
+}
+
+.provide-left {
+  flex: 1 1 40%;
+}
+
+.provide-left h2 {
+  font-size: 18px !important;
+  margin-bottom: 20px;
+}
+
+.provide-left div p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #555;
+}
+
+.provide-right {
+  flex: 1 1 55%;
+}
+
+.provide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.provide-box {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.provide-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.provide-box h3 {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.provide-box p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.box-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
+
+.gallery-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+#gallery h2 {
+  font-size: 18px !important;
+  margin-bottom: 20px;
+}
+
+.gallery-title {
+  font-size: 14px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.gallery-grid a {
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid a:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.glightbox-clean .gslide-image img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.gslide-desc {
+    max-height: 200px;
+    width: 100%;
+    overflow-y: auto;
+    line-height: 1.4;
+}
+
+/* 视频区整体样式 */
+/* .video-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+} */
+
+#video h2 {
+  font-size: 18px !important;
+  margin-bottom: 20px;
+}
+
+/* 每个视频项目（像文章卡片） */
+.video-item {
+  display: flex;
+  align-items: flex-start;
+  /* gap: 5px; */
+  margin-bottom: 0px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  border-radius: 0px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */
+  padding: 5px;
+  transition: transform 0.2s;
+}
+
+.video-item:hover {
+  transform: translateY(-3px);
+}
+
+.video-fav-btn {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
+}
+
+.video-fav-btn.active {
+  color: red;
+}
+
+.video-content h3 {
+  font-size: 14px;
+}
+
+.video-meta {
+  font-size: 11px;
+}
+
+video{
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  #video {
+    padding: 40px 0px;
+  }
+
+  .video-item {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+    align-items: stretch; /* ✅ 使左右两列等高 */
+    background-color: #f4f4f4;
+    overflow: hidden;
+    border-bottom: 1px solid grey;
+  }
+
+  .video-thumb {
+    flex: 0 0 40%;
+    max-width: 200px; /* 限制最大宽度 */
+    aspect-ratio: 1 / 1;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .video-thumb iframe, .video-thumb video{
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video-content {
+    flex: 1; /* 占右侧剩余空间 */
+    display: flex;
+    flex-direction: column; /* 垂直排列：title 在上，meta 在下 */
+    padding-left: 10px;
+    min-height: 0; /* 便于子项使用 margin-top:auto 正常生效 */
+  }
+
+  .video-content h3 {
+    margin: 0 0 8px;
+    line-height: 1.2;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: left;
+  }
+
+  .video-meta {
+    margin-top: auto; /* 🔥 把 meta 推到底部 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #666;
+  }
+  
+  video{
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      max-width: 90vw;
+      height: 150px;
+  }
+}
+
+/* Desktop 响应式 */
+@media (min-width: 768px) {
+  /* 整体视频容器 */
+  .video-section {
+    display: flex;
+    flex-wrap: wrap;             /* 自动换行 */
+    justify-content: center;     /* 少于3个时居中 */
+    gap: 20px;                   /* 卡片间距 */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* 每个视频卡片 */
+  .video-item {          /* 固定每个宽度 */
+    width: 32%;            /* 避免拉太宽 */
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;      /* 缩略图在上，文字在下 */
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+
+  .video-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .video-thumb {
+    flex: none;
+    width: 100%;
+    height: 200px;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .video-thumb iframe,
+  .video-thumb video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    object-fit: cover;
+  }
+
+  .video-content {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .video-content h3 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .video-meta {
+    font-size: 11px;
+    color: #666;
+  }
+}
+
+.carousel-wrapper {
+  text-align: center;
+}
+
+.carousel-title {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.carousel-container {
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carousel-track {
+  display: flex;
+  margin: 0;
+  transition: transform 0.5s ease;
+}
+
+.carousel-slide {
+  flex: 0 0 auto;
+  margin: 0 10px;
+  max-width: 380px;
+  padding: 10px;
+}
+
+.slide-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  /*background: #fff;*/
+  /*border-radius: 12px;*/
+  /*box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
+}
+
+.slide-icon {
+  max-width: 40px;
+  margin-bottom: 10px;
+}
+
+#gallery .slide-icon {
+  max-width: 150px;
+}
+
+.slide-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.slide-box p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.carousel-dots {
+  margin-top: 10px;
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 4px;
+  background: #ccc;
+  cursor: pointer;
+}
+
+.carousel-dots button.active {
+  background: #333;
+}
+
+.social-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 18px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white; /* 或者透明 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  overflow: hidden;
+}
+
+.social-toggle img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.social-buttons {
+  position: fixed;
+  bottom: 80px;
+  right: 21px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9998;
+}
+
+.social-buttons.show {
+  display: flex;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+  padding: 5px;
+}
+
+.social-btn img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Optional hover effect */
+.social-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Optional color backgrounds per platform (if desired) */
+.social-btn.whatsapp {
+  background-color: #25d366;
+}
+.social-btn.instagram {
+  background-color: #e1306c;
+}
+.social-btn.messenger {
+  background-color: #0084ff;
+}
+
+/* =========== ✅ Mobile View ============ */
+@media (max-width: 768px) {
+  #banner-caption h2{
+    font-size: 0.6rem;
+  }
+
+  .about-wrapper,
+  .provide-wrapper {
+    flex-direction: column;
+    text-align: justify;
+  }
+
+  #pageContent, #about, .provide{
+      overflow-x: hidden;
+  }
+  .about-left,
+  .about-right,
+  .provide-left,
+  .provide-right {
+    flex: 1 1 100%;
+  }
+
+  .about-right img {
+    max-height: 300px;
+  }
+
+  .features-grid {
+    flex-direction: column;
+  }
+
+  .feature-box,
+  .provide-box {
+    flex: 1 1 100%;
+  }
+
+  .provide-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 40px 15px;
+  }
+  
+  .carousel-slide{
+    max-width: 340px;
+  }
+  
+  #gallery .slide-icon {
+    max-width: 80px !important;
+  }
+}
+
+/* ===== PDF Section ===== */
+.pdf-section h2 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.pdf-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+}
+
+.pdf-item {
+  flex: 0 1 calc(33.333% - 17px);
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pdf-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-item h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 15px;
+  word-break: break-word;
+  order: 1;
+}
+
+.pdf-preview {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  order: 2;
+}
+
+.pdf-download-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  order: 3;
+}
+
+.pdf-download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+@media (max-width: 768px) {
+  .pdf-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pdf-item {
+    flex: 0 1 auto;
+    width: 100%;
+  }
+
+  .pdf-section h2 {
+    font-size: 24px;
+  }
+}

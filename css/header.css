@@ -1,0 +1,342 @@
+/* Header 基本样式 */
+header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 20px 40px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+header img {
+  height: 50px;
+  max-height: 50px;
+  max-width: 160px;
+  object-fit: contain;
+}
+
+/* Menu toggle (only visible on mobile) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Nav links */
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #0077cc;
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav a {
+    margin: 2px 0;
+    font-size: 14px;
+  }
+
+  header {
+    padding: 5px 20px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Mobile 默认隐藏 Google Translate */
+  #google_translate_element {
+    display: none;
+  }
+
+  /* 当菜单打开时，JS 会让它显示 */
+  nav.show #google_translate_element {
+    display: block;
+  }
+
+  .nav-icon {
+    margin-right: 20px;
+  }
+}
+
+/* 自定义语言选择器外观（桌面端） */
+.lang-selector {
+  margin-left: 20px;
+}
+
+#customLangForm select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 6px 30px 6px 10px;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#customLangForm select:hover {
+  border-color: #aaa;
+}
+
+#customLangForm select:focus {
+  outline: none;
+  border-color: #4285f4;
+  box-shadow: 0 0 4px rgba(66, 133, 244, 0.4);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  min-width: 160px;
+  z-index: 9999;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu a, .dropdown-menu span {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dropdown-menu a:hover, .dropdown-menu span:hover {
+  background: #f4f4f4;
+}
+
+.dropdown-menu span {
+  cursor: default;
+  background: transparent;
+}
+
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+/*one-line subnav for desktop;without this part, both desktop and mobile will use vertical dropdown menu*/
+@media (min-width: 769px) {
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: fixed;
+    top: 90px;
+    width: 100vw;
+    gap: 20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+    justify-content: center;
+  }
+
+  .dropdown-menu li {
+    border: 0;
+  }
+
+  .dropdown-menu a, .dropdown-menu span {
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+  
+  .dropdown::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 30px;
+  }
+
+  .dropdown:hover .dropdown-menu,
+  .dropdown-menu:hover {
+    display: flex;
+  }
+}
+/* Mobile 样式 */
+@media (max-width: 768px) {
+  nav a {
+    display: inline-flex; /* 让图标和文字在一行 */
+    align-items: center; /* 垂直居中 */
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+    max-width: 200px; /* 你可以调整合适的宽度 */
+    white-space: normal; /* 允许文字换行 */
+    word-break: break-word; /* 强制文字长的时候也能断行 */
+  }
+
+  .nav-icon {
+    flex-shrink: 0; /* 图标不压缩 */
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+  }
+
+  .dropdown-menu span{
+    font-size: 14px; 
+  }
+  
+  .lang-selector {
+    /* display: none !important; */
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  /* 当菜单展开时才显示语言选择器 */
+  nav.show + .lang-selector {
+    display: flex !important;
+  }
+
+  .lang-selector select {
+    width: 80%;
+    max-width: 300px;
+    padding: 8px;
+    font-size: 14px;
+  }
+}
+
+/* Sidebar + 内容联动效果 */
+@media (max-width: 768px) {
+  body.no-scroll {
+    overflow: hidden;
+  }
+  /* Sidebar */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 20px;
+    gap: 15px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 2000;
+
+    /* 改进阴影 */
+    box-shadow: 6px 0 12px rgba(0, 0, 0, 0.15);
+  }
+  nav.show {
+    transform: translateX(0);
+  }
+
+  /* 让 header 和侧边栏在最上面，可点击 */
+  header {
+    z-index: 3000;
+  } /* 比 overlay 高 */
+  nav {
+    z-index: 4000;
+  } /* 侧边栏最高 */
+
+  /* 右侧内容 */
+  #pageContent {
+    transition: margin-left 0.3s ease;
+    z-index: 1000;
+  }
+  #pageContent.shifted {
+    transform: translateX(250px);
+  } /* 不必再禁用 pointer-events */
+
+  /* 半透明遮罩：盖住 pageContent，但不盖 header/nav */
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    /* background: rgba(0, 0, 0, 0.35); */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 2000; /* 介于 pageContent(1000) 和 header/nav(3000/4000) 之间 */
+  }
+  .menu-overlay.active {
+    opacity: 1;
+    pointer-events: auto; /* 能拦截点击，点击后关闭菜单 */
+  }
+
+  /* 打开菜单时，彻底禁用页面滚动（iOS 也有效） */
+  body.menu-open {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .lang-selector {
+    margin-left: 0px;
+  }
+
+  .main-content {
+    padding: 10px;
+    font-size: 14px;
+  }
+}

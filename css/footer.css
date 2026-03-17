@@ -1,0 +1,147 @@
+footer {
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* 第一行整体布局 */
+.footer-top-modern {
+  display: flex;
+  justify-content: center; /* 三栏居中分布 */
+  align-items: stretch; /* 让竖线拉满高度 */
+  padding: 40px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  box-sizing: border-box;
+}
+
+/* 左边导航区域 */
+.footer-brand-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px 40px;
+}
+
+.footer-nav a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 5px 0;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+/* 中间竖线 */
+.footer-separator {
+  width: 1px;
+  background-color: white;
+}
+
+/* 右边联系信息 */
+.footer-contact {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左对齐 */
+  margin: 0 auto;
+  text-align: left;
+  padding: 10px 40px;
+}
+
+.footer-contact h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+.contact-item span {
+  word-break: break-word;
+}
+
+/* 社交按钮 */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.footer-socials .social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+.footer-socials .social-link img {
+  width: 30px;
+  height: 30px;
+}
+
+.footer-socials .social-link:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+/* 第二行版权信息 */
+.footer-bottom {
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  /* 隐藏左侧导航和中间竖线 */
+  .footer-brand-nav,
+  .footer-separator {
+    display: none;
+  }
+
+  /* 右边 Contact 居中容器但文字靠左 */
+  .footer-contact {
+    width: 100%;
+    max-width: 350px; /* 控制文字宽度，视觉居中 */
+    align-items: flex-start; /* 左对齐 */
+    text-align: left;
+    padding: 0; /* 移除多余 padding */
+  }
+
+  /* 确保 span 文字在手机上左对齐 */
+  .footer-contact .contact-item span {
+    text-align: left;
+    display: block;
+  }
+
+  /* 社交按钮在手机上居中 */
+  .footer-socials {
+    justify-content: left;
+    width: 100%;
+  }
+}

@@ -1,0 +1,228 @@
+body {
+  background-color: #f4f6f8;
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+  margin: 0;
+  padding: 1rem;
+}
+
+.form-wrapper {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  color: #111827;
+  border-left: 4px solid #3b82f6;
+  padding-left: 0.5rem;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+select,
+input[type="text"] {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+select:focus,
+input[type="text"]:focus {
+  border-color: #3b82f6;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+button {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th,
+td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.update-btn {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: white;
+}
+
+.update-btn:hover {
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  text-align: center;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* Google Translate Included Languages 样式 */
+.checkbox-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.5rem 1rem;
+  padding: 10px;
+}
+
+.checkbox-group label {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.checkbox-group label:hover {
+  background: #f3f4f6;
+  border-color: #3b82f6;
+}
+
+.checkbox-group input[type="checkbox"] {
+  transform: scale(1.15);
+}
+
+/* 勾选时卡片高亮 */
+.checkbox-group input[type="checkbox"]:checked + span {
+  color: #1e40af;
+  font-weight: 600;
+}
+
+.checkbox-group input[type="checkbox"]:checked:before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 6px;
+  border: 2px solid #3b82f6;
+  pointer-events: none;
+}
+
+/* 手机端样式 */
+@media (max-width: 640px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+    width: 100%;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  tr {
+    background: #fff;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem;
+  }
+
+  td {
+    border: none;
+    padding: 0.5rem 0;
+  }
+
+  td[data-label]::before {
+    content: attr(data-label) ": ";
+    font-weight: bold;
+    color: #2563eb;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  input[type="text"],
+  button,
+  a.delete-btn {
+    width: 100%;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
